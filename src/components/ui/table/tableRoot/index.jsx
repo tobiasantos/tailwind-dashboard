@@ -1,7 +1,9 @@
 export function TableRoot({ children }) {
-  // faltou estilizar a borda
   return (
-    <div className="flex flex-col grow overflow-hidden max-w-[100dvw] bg-white border rounded-md shadow-md">
+    <div
+      // className={`flex flex-col grow overflow-hidden max-w-[100dvw] max-h-[${maxHeight}px] bg-white border rounded-lg shadow-md`}
+      className={`flex flex-col grow overflow-hidden max-w-[100dvw] h-full bg-white border rounded-lg shadow-md`}
+    >
       {children}
     </div>
   );

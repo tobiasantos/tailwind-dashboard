@@ -3,6 +3,7 @@ import { Table } from "../ui/table";
 import { fakeMeetings } from "../../constants/reunioesData";
 import { useWindowDimensions } from "../../services/useWindowDimensions";
 import { useEffect, useState } from "react";
+import { Pagination } from "../pagination";
 
 export function ReunioesTable() {
   const { width } = useWindowDimensions();
@@ -42,7 +43,7 @@ export function ReunioesTable() {
   };
 
   useEffect(() => {
-    const auxMeetings = [...fakeMeetings];
+    const auxMeetings = [...meetings];
     if (duracaoSort === "asc") {
       setMeetings(
         auxMeetings.sort((a, b) => {
@@ -62,7 +63,14 @@ export function ReunioesTable() {
 
   return (
     <Table.Root>
-      <Table.Summary title={"Reuniões"}></Table.Summary>
+      <Table.Summary title={"Reuniões"}>
+        <div className="flex flex-col items-end gap-2">
+          <button className="w-fit px-4 py-2 border rounded-lg bg-[#6FBFB6] hover:bg-[#6CBAB1] text-white ">
+            Filtros
+          </button>
+          <Pagination />
+        </div>
+      </Table.Summary>
       <Table.Content>
         <Table.Head>
           <Table.TH text="Título" width={titleWidth}></Table.TH>

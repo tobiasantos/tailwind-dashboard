@@ -55,7 +55,7 @@ export function SideMenu({ currentPage, setCurrentPage }) {
             <span>Integrações</span>
           </li>
         </ul>
-        <div className="grow flex gap-3 pl-4 justify-between items-end">
+        <div className="w-[90%] grow flex gap-3 pl-4 justify-between items-end">
           Precisa de ajuda ?
           <div
             className="cursor-pointer relative"

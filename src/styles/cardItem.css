@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .card-item {
+      @apply flex flex-col px-8 py-4 border rounded-lg shadow-md
+    }
+
+    .card-item span {
+      @apply text-4xl font-bold text-[#6FBFB6]
+    }
+}
