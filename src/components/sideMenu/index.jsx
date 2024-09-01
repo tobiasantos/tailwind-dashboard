@@ -13,7 +13,7 @@ export function SideMenu({ currentPage, setCurrentPage }) {
   const [toolTipVisible, setToolTipVisible] = useState(false);
 
   return (
-    <div className="h-full flex flex-col justify-start gap-6 p-6 border-r-gray-300 border relative">
+    <div className="h-full flex flex-col justify-start gap-6 p-6 border-r-gray-300 border fixed">
       <img src={logo} alt="logo" className="w-[80%] object-contain" />
       <hr />
       <div className="flex flex-col justify-end h-[60vh]">

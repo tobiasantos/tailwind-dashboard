@@ -1,11 +1,11 @@
-export function SortIcon({ size, sortValue }) {
+export function TimeLogo({ color = "#000", size = 24 }) {
   return (
     <svg
-      viewBox="0 0 16 16"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      width={size || 24}
-      height={size || 24}
+      width={size}
+      height={size}
     >
       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
       <g
@@ -15,13 +15,12 @@ export function SortIcon({ size, sortValue }) {
       ></g>
       <g id="SVGRepo_iconCarrier">
         <path
-          d="M8 0L2 6V7H14V6L8 0Z"
-          fill={sortValue === "asc" ? "#6FBFB6" : "#000"}
+          d="M12 8V12L15 15"
+          stroke={color}
+          stroke-width="2"
+          stroke-linecap="round"
         ></path>
-        <path
-          d="M8 16L2 10V9H14V10L8 16Z"
-          fill={sortValue === "desc" ? "#6FBFB6" : "#000"}
-        ></path>
+        <circle cx="12" cy="12" r="9" stroke={color} stroke-width="2"></circle>
       </g>
     </svg>
   );

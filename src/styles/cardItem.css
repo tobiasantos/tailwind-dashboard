@@ -4,10 +4,10 @@
 
 @layer components {
     .card-item {
-      @apply flex flex-col px-8 py-4 border rounded-lg shadow-md
+      @apply flex flex-col px-8 py-4 border rounded-lg shadow-md relative
     }
 
     .card-item span {
-      @apply text-4xl font-bold text-[#6FBFB6]
+      @apply text-4xl font-bold text-[#6FBFB6] cursor-default
     }
 }

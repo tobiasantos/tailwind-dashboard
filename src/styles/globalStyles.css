@@ -10,4 +10,21 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+}
+
+body::-webkit-scrollbar {
+  width: 4px;
+}
+  
+body::-webkit-scrollbar-thumb {
+    background: #6FBFB6;
+}
+
+body::-webkit-scrollbar-track {
+    background: #EDEDED;
+}
+
+span {
+  @apply line-clamp-1
 }

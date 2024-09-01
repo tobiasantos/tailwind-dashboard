@@ -23,10 +23,12 @@ export function HomePage() {
 
   return (
     <div className="flex gap-4">
-      <div className="flex-none w-[20%] h-screen">
+      <div className="flex-none w-[20%] h-screen relative">
         <SideMenu currentPage={currentPage} setCurrentPage={setCurrentPage} />
       </div>
-      <div className="grow">{getContent(currentPage)}</div>
+      <div className="grow flex justify-center mt-4">
+        {getContent(currentPage)}
+      </div>
     </div>
   );
 }

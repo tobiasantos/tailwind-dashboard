@@ -1,11 +1,21 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Table } from "../ui/table";
-import { fakeMeetings } from "../../constants/reunioesData";
 import { useWindowDimensions } from "../../services/useWindowDimensions";
 import { useEffect, useState } from "react";
 import { Pagination } from "../pagination";
+import { PaginationSelect } from "../paginationSelect";
 
-export function ReunioesTable() {
+export function ReunioesTable({
+  meetings,
+  page,
+  setPage,
+  perPage,
+  setPerPage,
+  duracaoSort,
+  setDuracaoSort,
+  dataSort,
+  setDataSort,
+  totalMeetings,
+}) {
   const { width } = useWindowDimensions();
 
   const [titleWidth, setTitleWidth] = useState(25);
@@ -13,8 +23,6 @@ export function ReunioesTable() {
   const [responsavelWidth, setResponsavelWidth] = useState(20);
   const [dataWidth, setDataWidth] = useState(15);
   const [duracaoWidth, setDuracaoWidth] = useState(20);
-  const [duracaoSort, setDuracaoSort] = useState("");
-  const [meetings, setMeetings] = useState(fakeMeetings);
 
   useEffect(() => {
     if (width > 1024) {
@@ -34,42 +42,15 @@ export function ReunioesTable() {
     }
   }, [width]);
 
-  const getTimeByDuracao = (duracao) => {
-    const [hours, minutes] = duracao.split(" ");
-    const hoursClean = hours.replace("h", "");
-    const minutesClean = minutes.replace("m", "");
-
-    return parseInt(hoursClean) * 60 + parseInt(minutesClean);
-  };
-
-  useEffect(() => {
-    const auxMeetings = [...meetings];
-    if (duracaoSort === "asc") {
-      setMeetings(
-        auxMeetings.sort((a, b) => {
-          return getTimeByDuracao(a.duracao) - getTimeByDuracao(b.duracao);
-        })
-      );
-    } else if (duracaoSort === "desc") {
-      setMeetings(
-        auxMeetings.sort((a, b) => {
-          return getTimeByDuracao(b.duracao) - getTimeByDuracao(a.duracao);
-        })
-      );
-    } else {
-      setMeetings(auxMeetings);
-    }
-  }, [duracaoSort]);
-
   return (
     <Table.Root>
       <Table.Summary title={"Reuniões"}>
-        <div className="flex flex-col items-end gap-2">
-          <button className="w-fit px-4 py-2 border rounded-lg bg-[#6FBFB6] hover:bg-[#6CBAB1] text-white ">
-            Filtros
-          </button>
-          <Pagination />
-        </div>
+        <Pagination
+          perPage={perPage}
+          setPerPage={setPerPage}
+          setPage={setPage}
+          listLength={totalMeetings}
+        />
       </Table.Summary>
       <Table.Content>
         <Table.Head>
@@ -80,13 +61,20 @@ export function ReunioesTable() {
           {width > 768 && (
             <Table.TH text="Responsável" width={responsavelWidth}></Table.TH>
           )}
-          <Table.TH text="Data" width={dataWidth}></Table.TH>
+          <Table.TH
+            text="Data"
+            width={dataWidth}
+            sortValue={dataSort}
+            setSortValue={setDataSort}
+            resetConcurrentSort={() => setDuracaoSort("")}
+          ></Table.TH>
           {width > 1024 && (
             <Table.TH
               text="Duração"
               width={duracaoWidth}
-              duracaoSort={duracaoSort}
-              setDuracaoSort={setDuracaoSort}
+              sortValue={duracaoSort}
+              setSortValue={setDuracaoSort}
+              resetConcurrentSort={() => setDataSort("")}
             ></Table.TH>
           )}
         </Table.Head>
@@ -104,6 +92,11 @@ export function ReunioesTable() {
           ))}
         </Table.Body>
       </Table.Content>
+      <PaginationSelect
+        currentPage={page}
+        setCurrentPage={setPage}
+        maxPage={Math.ceil(totalMeetings / perPage)}
+      />
     </Table.Root>
   );
 }

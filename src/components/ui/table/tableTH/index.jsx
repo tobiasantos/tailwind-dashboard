@@ -1,7 +1,13 @@
 import { SortIcon } from "../../../../svg/sort";
 
-export function TableTH({ text, width, duracaoSort = "", setDuracaoSort }) {
-  if (!setDuracaoSort) {
+export function TableTH({
+  text,
+  width,
+  sortValue = "",
+  setSortValue,
+  resetConcurrentSort,
+}) {
+  if (!setSortValue) {
     return (
       <th
         className={`w-[${
@@ -19,16 +25,15 @@ export function TableTH({ text, width, duracaoSort = "", setDuracaoSort }) {
           <div
             className="cursor-pointer"
             onClick={() => {
-              if (duracaoSort === "asc") {
-                setDuracaoSort("desc");
-              } else if (duracaoSort === "desc") {
-                setDuracaoSort("");
+              !sortValue && resetConcurrentSort();
+              if (sortValue === "asc") {
+                setSortValue("desc");
               } else {
-                setDuracaoSort("asc");
+                setSortValue("asc");
               }
             }}
           >
-            <SortIcon size={12} duracaoSort={duracaoSort} />
+            <SortIcon size={12} sortValue={sortValue} />
           </div>
         </div>
       </th>
