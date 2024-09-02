@@ -5,14 +5,14 @@ export function Pagination({ perPage, setPerPage, setPage, listLength }) {
   const options = [10, 20, 30, 40, 50];
   return (
     <div className="flex items-center gap-4">
-      <div className="px-2 border-r border-black h-5 flex items-center">
+      <div className="px-2 border-r border-black h-4 flex items-center">
         <h5 className="text-xs sm:text-sm whitespace-nowrap">
           Itens por página:
         </h5>
         <select
           name="pagination"
           id="pagination"
-          className="w-10 text-sm"
+          className="w-10 text-sm ml-2"
           value={perPage}
           onChange={(e) => {
             setPage(1);

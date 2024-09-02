@@ -20,19 +20,19 @@ export function TableTH({
   } else {
     return (
       <th className={`w-[${width ? width + "%" : "auto"}] font-medium px-6`}>
-        <div className="flex justify-start items-baseline gap-2">
+        <div
+          className="flex justify-start items-baseline gap-2"
+          onClick={() => {
+            !sortValue && resetConcurrentSort();
+            if (sortValue === "asc") {
+              setSortValue("desc");
+            } else {
+              setSortValue("asc");
+            }
+          }}
+        >
           <span>{text}</span>
-          <div
-            className="cursor-pointer"
-            onClick={() => {
-              !sortValue && resetConcurrentSort();
-              if (sortValue === "asc") {
-                setSortValue("desc");
-              } else {
-                setSortValue("asc");
-              }
-            }}
-          >
+          <div className="cursor-pointer">
             <SortIcon size={12} sortValue={sortValue} />
           </div>
         </div>
