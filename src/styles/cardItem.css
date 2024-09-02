@@ -4,10 +4,14 @@
 
 @layer components {
     .card-item {
-      @apply flex flex-col px-8 py-4 border rounded-lg shadow-md relative
+      @apply w-full md:w-auto flex flex-col px-8 py-4 border rounded-lg shadow-md relative
+    }
+
+    .card-item h5 {
+      @apply md:text-sm md:text-base
     }
 
     .card-item span {
-      @apply text-4xl font-bold text-[#6FBFB6] cursor-default
+      @apply lg:text-4xl text-2xl font-bold text-[#6FBFB6] cursor-default
     }
 }

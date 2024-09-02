@@ -10,6 +10,8 @@ import {
   getMeetsByPage,
   sortMeetings,
 } from "../../services/filterServices";
+import { useWindowDimensions } from "../../services/useWindowDimensions";
+import { MobileFilters } from "../../components/mobileFilters";
 
 export function ReunioesPage() {
   const [meetings, setMeetings] = useState(fakeMeetings);
@@ -21,6 +23,8 @@ export function ReunioesPage() {
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
   const [totalMeetings, setTotalMeetings] = useState(meetings.length);
+
+  const { width } = useWindowDimensions();
 
   const filterProps = {
     titleFilter,
@@ -49,6 +53,8 @@ export function ReunioesPage() {
     setDataSort,
     totalMeetings,
   };
+
+  const isMobile = width < 768;
 
   useEffect(() => {
     const data = filterMeetings(
@@ -79,8 +85,13 @@ export function ReunioesPage() {
   return (
     <div className="meet-page-wrapper">
       <div className="w-full">
-        <Filters {...filterProps} />
+        {isMobile ? (
+          <MobileFilters {...filterProps} />
+        ) : (
+          <Filters {...filterProps} />
+        )}
       </div>
+
       <div className="w-full">
         <ReunioesInfo {...reuniaoInfoProps} />
       </div>

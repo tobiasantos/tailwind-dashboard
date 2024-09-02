@@ -1,9 +1,9 @@
-export function RocketLogo({ color, size }) {
+export function RocketLogo({ color = "#000", size = 24 }) {
   return (
     <svg
-      fill={color || "black"}
-      width={size || "24px"}
-      height={size || "24px"}
+      fill={color}
+      width={size}
+      height={size}
       viewBox="0 0 32 32"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"

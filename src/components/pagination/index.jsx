@@ -6,7 +6,9 @@ export function Pagination({ perPage, setPerPage, setPage, listLength }) {
   return (
     <div className="flex items-center gap-4">
       <div className="px-2 border-r border-black h-5 flex items-center">
-        <span className="text-sm">Itens por página:</span>
+        <h5 className="text-xs sm:text-sm whitespace-nowrap">
+          Itens por página:
+        </h5>
         <select
           name="pagination"
           id="pagination"
@@ -24,7 +26,9 @@ export function Pagination({ perPage, setPerPage, setPage, listLength }) {
           ))}
         </select>
       </div>
-      <span className="text-sm">Total de {formataNumero(listLength)}</span>
+      <h5 className="text-xs sm:text-sm whitespace-nowrap">
+        Total de {formataNumero(listLength)}
+      </h5>
     </div>
   );
 }

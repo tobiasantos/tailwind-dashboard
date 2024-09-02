@@ -10,4 +10,24 @@
     .side-menu-item.active {
       @apply bg-gray-100 rounded-lg shadow-lg scale-110
     }
+
+    .side-menu-item-mobile {
+      @apply w-[90%] flex gap-3 items-center px-2 py-1 rounded-lg transition-all cursor-pointer
+    }
+
+    .side-menu-item-mobile > div {
+      @apply transition-all duration-300
+    }
+
+    .side-menu-item-mobile.active {
+      @apply text-[#6cbab1]
+    }
+
+    .side-menu-item-mobile.active > div {
+      @apply bg-[#6cbab1] rounded-lg shadow-md p-2
+    }
+
+    .exit {
+      @apply text-sm
+    }
 }

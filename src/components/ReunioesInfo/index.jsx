@@ -63,8 +63,9 @@ export function ReunioesInfo({ meetings, totalMeetings }) {
     const minutes = totalDuration % 60;
     return `${hours}h ${minutes}m`;
   };
+
   return (
-    <div className="grid grid-cols-2 grid-flow-row gap-4">
+    <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:grid-flow-row">
       <div className="card-item">
         <div className="flex items-center gap-1">
           <MeetingsLogo color={"#6cbab1"} size={18} />
@@ -72,7 +73,6 @@ export function ReunioesInfo({ meetings, totalMeetings }) {
         </div>
         <span>{getTotalMeetings()}</span>
       </div>
-
       <div className="card-item">
         <div className="flex items-center gap-1">
           <TimeLogo color={"#6cbab1"} size={18} />

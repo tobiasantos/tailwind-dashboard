@@ -1,12 +1,12 @@
-export function ToolTipLogo({ color, size }) {
+export function ToolTipLogo({ color = "#000", size = 24 }) {
   return (
     <svg
       viewBox="0 0 32 32"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      fill={color || "black"}
-      width={size || "18px"}
-      height={size || "18px"}
+      fill={color}
+      width={size}
+      height={size}
     >
       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
       <g

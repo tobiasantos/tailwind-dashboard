@@ -59,11 +59,15 @@ export function Filters({
           <span className="text-sm">Responsáveis</span>
           <MultiSelect
             items={[
-              "Planejamento Estratégico",
-              "Marketing",
-              "Vendas",
-              "Desenvolvimento de Produto",
-              "Recursos Humanos",
+              "Ana",
+              "Carlos",
+              "Fernanda",
+              "José",
+              "Paulo",
+              "Juliana",
+              "Ricardo",
+              "Lucia",
+              "Roberto",
             ]}
             placeholder="Selecione responsáveis"
             selectedItems={responsibleFilter}
