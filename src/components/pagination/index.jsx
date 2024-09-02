@@ -12,7 +12,7 @@ export function Pagination({ perPage, setPerPage, setPage, listLength }) {
         <select
           name="pagination"
           id="pagination"
-          className="w-10 text-sm ml-2"
+          className="w-12 text-sm ml-2"
           value={perPage}
           onChange={(e) => {
             setPage(1);
